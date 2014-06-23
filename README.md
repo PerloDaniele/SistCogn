@@ -1,0 +1,4 @@
+SistCogn
+========
+
+Esercitazioni Sistemi Cognitivi
