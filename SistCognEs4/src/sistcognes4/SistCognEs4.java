@@ -29,11 +29,16 @@ public class SistCognEs4 {
 
     static WordAnalisys wa = new WordAnalisys();
     static HashMap<String, HashMap<String, Double>> tf=null;
+    static HashMap<String, HashMap<String, Double>> tfidf=null;
     static HashMap<Type, List<String>> profiles=null;
     static HashMap<String, Double> idf=null;
     static List<String> trainingdoc=null;
     static List<String> testdoc=null;
-
+    static HashMap<Type, HashMap<String, Double>> centroidi=null;
+    static HashMap<Type, HashMap<String, Double>> centroidiRocchio=null;
+    static final int beta=16;
+    static final int gamma=4;
+    
     static final String tfFile = "tfbabel.ser";
     //static final String tfFile = "tflemm.ser";
     
@@ -49,6 +54,9 @@ public class SistCognEs4 {
         tf();
         idf();
         profili();
+        centroidi();
+        centroidiRocchio();
+        centroidiRocchioMigliorato();
         
         
         
@@ -140,7 +148,7 @@ public class SistCognEs4 {
         for(String term:tf.get(trainingdoc.get(0)).keySet()){
             int n=0;
             for(String doc:trainingdoc){
-                if(tf.get(doc).get(term)==0.0)
+                if(tf.get(doc).get(term)!=0.0)
                     n++;
             }
             idf.put(term, (n!=0)? Math.log(N/n) : 0.0 );
@@ -161,6 +169,121 @@ public class SistCognEs4 {
                     profiles.put(t, aus);
                 }
     }
+    
+    public static void tfidf(){
+        tfidf = new HashMap<>();
+        HashMap<String, Double> aus;
+        HashMap<String, Double> tfdoc;
+        for(String doc : trainingdoc){
+            tfdoc = tf.get(doc);
+            aus = new HashMap<>();
+            for(String term : tfdoc.keySet()){
+                aus.put(term, tfdoc.get(term)*idf.get(term));
+            }
+            tfidf.put(doc, aus);
+        }
+        
+    }
+    
+    public static void centroidi(){
+        centroidi = new HashMap<>();
+        HashMap<String,Double> aus;
+        for (Type t : Type.values()) {
+            aus=new HashMap<>();
+            for(String doc : profiles.get(t)){
+               for(String term : tfidf.get(doc).keySet()){
+               
+                   if(aus.containsKey(term)) 
+                       aus.put(term, aus.get(term) + tfidf.get(doc).get(term));
+                   else
+                       aus.put(term, tfidf.get(doc).get(term));
+               
+               } 
+            }
+            for(String term : aus.keySet()){
+                aus.put(term, aus.get(term)/profiles.get(t).size());
+            }
+            centroidi.put(t,aus);
+        }
+        
+    }
+    
+    public static void centroidiRocchio(){
+        centroidiRocchio = new HashMap<>();
+        HashMap<String,Double> aus;
+        for (Type t : Type.values()) {
+            aus=new HashMap<>();
+            for(String doc : profiles.get(t)){
+               for(String term : tfidf.get(doc).keySet()){
+               
+                   if(aus.containsKey(term)) 
+                       aus.put(term, aus.get(term) + tfidf.get(doc).get(term));
+                   else
+                       aus.put(term, tfidf.get(doc).get(term));
+               
+               } 
+            }
+            for(String term : aus.keySet()){
+                aus.put(term, beta*aus.get(term)/profiles.get(t).size() - gamma*aus.get(term)/(trainingdoc.size()-profiles.get(t).size()));
+            }
+            centroidiRocchio.put(t,aus);
+        }
+    }
+    
+    public static void centroidiRocchioMigliorato(){
+        centroidiRocchio = new HashMap<>();
+        HashMap<String,Double> aus;
+        for (Type t : Type.values()) {
+            aus=new HashMap<>();
+            for(String doc : profiles.get(t)){
+               for(String term : tfidf.get(doc).keySet()){
+               
+                   if(aus.containsKey(term)) 
+                       aus.put(term, aus.get(term) + tfidf.get(doc).get(term));
+                   else
+                       aus.put(term, tfidf.get(doc).get(term));
+               
+               } 
+            }
+            
+            Type NP = Type.AMBIENTE;
+            Double mindist = Double.MAX_VALUE;
+            for(Type tnp:Type.values())
+                if(tnp!=t){
+                    Double s = cosSimilarity(centroidi.get(t),centroidi.get(tnp));
+                    if(s<mindist){ mindist=s; NP=tnp; }
+                }
+            
+            
+            for(String term : aus.keySet()){
+                aus.put(term, beta*aus.get(term)/profiles.get(t).size() - gamma*aus.get(term)/(profiles.get(NP).size()));
+            }
+            centroidiRocchio.put(t,aus);
+        }
+    }
+    
+    public static Double modulo ( HashMap<String,Double> v){
+    
+        Double res=0.0;
+        for(String i : v.keySet()){
+            res+=v.get(i)*v.get(i);
+        }
+        return Math.sqrt(res);
+    }
+    
+    public static Double prodScalare ( HashMap<String,Double> v1,HashMap<String,Double> v2){
+    
+        Double res=0.0;
+        for(String i : v1.keySet()){
+            res+=v1.get(i)*v2.get(i);
+        }
+        return res;
+    }
+    
+    public static Double cosSimilarity(HashMap<String,Double> v1,HashMap<String,Double> v2){
+        return prodScalare(v1,v2)/(modulo(v1)*modulo(v2));
+    }
+    
 }
 
 enum Type {
