@@ -27,7 +27,7 @@ import java.util.List;
  */
 public class SistCognEs4 {
 
-    static WordAnalisys wa = new WordAnalisys();
+    static WordAnalisys wa;
     static HashMap<String, HashMap<String, Double>> tf=null;
     static HashMap<String, HashMap<String, Double>> tfidf=null;
     static HashMap<Type, List<String>> profiles=null;
@@ -36,6 +36,7 @@ public class SistCognEs4 {
     static List<String> testdoc=null;
     static HashMap<Type, HashMap<String, Double>> centroidi=null;
     static HashMap<Type, HashMap<String, Double>> centroidiRocchio=null;
+    static HashMap<Type, HashMap<String, Double>> centroidiRocchioMigliorato=null;
     static final int beta=16;
     static final int gamma=4;
     
@@ -54,11 +55,13 @@ public class SistCognEs4 {
         tf();
         idf();
         profili();
+        tfidf();
         centroidi();
         centroidiRocchio();
         centroidiRocchioMigliorato();
-        
-        
+        testCentroidi();
+        testCentroidiRocchio();
+        testCentroidiRocchioMigliorato();
         
         System.out.println("Finito");
 
@@ -67,10 +70,11 @@ public class SistCognEs4 {
     public static void listeDocumenti(){
         trainingdoc=new ArrayList<>();
         testdoc=new ArrayList<>();
-        File dir = new File("./docs_200/training");
+        File dir = new File("./docs_200/test");
         Collections.addAll(trainingdoc,dir.list());
-        dir = new File("./docs_200/test");
+        dir = new File("./docs_200/training");
         Collections.addAll(testdoc,dir.list());
+        Collections.sort(testdoc);
     }
     
     public static void tf(){
@@ -87,6 +91,7 @@ public class SistCognEs4 {
         if (!caricamento) {
             tf = new HashMap<String, HashMap<String, Double>>();
             try {
+                wa = new WordAnalisys();
                 System.out.println("inizio apprendimento tf...");
                 File trainingDir = new File("./docs_200/all");
                 BufferedReader b;
@@ -231,7 +236,7 @@ public class SistCognEs4 {
     }
     
     public static void centroidiRocchioMigliorato(){
-        centroidiRocchio = new HashMap<>();
+        centroidiRocchioMigliorato = new HashMap<>();
         HashMap<String,Double> aus;
         for (Type t : Type.values()) {
             aus=new HashMap<>();
@@ -247,18 +252,18 @@ public class SistCognEs4 {
             }
             
             Type NP = Type.AMBIENTE;
-            Double mindist = Double.MAX_VALUE;
+            Double maxsim = Double.MIN_VALUE;
             for(Type tnp:Type.values())
                 if(tnp!=t){
                     Double s = cosSimilarity(centroidi.get(t),centroidi.get(tnp));
-                    if(s<mindist){ mindist=s; NP=tnp; }
+                    if(s>maxsim){ maxsim=s; NP=tnp; }
                 }
             
             
             for(String term : aus.keySet()){
                 aus.put(term, beta*aus.get(term)/profiles.get(t).size() - gamma*aus.get(term)/(profiles.get(NP).size()));
             }
-            centroidiRocchio.put(t,aus);
+            centroidiRocchioMigliorato.put(t,aus);
         }
     }
     
@@ -284,6 +289,50 @@ public class SistCognEs4 {
         return prodScalare(v1,v2)/(modulo(v1)*modulo(v2));
     }
     
+    public static void testCentroidi(){
+        System.out.println("***Centroidi tradizionali***");
+        for(String doc:testdoc){
+            Type NP = Type.AMBIENTE;
+            Double maxsim = Double.MIN_VALUE;
+            for(Type tnp:Type.values()){
+                Double s = cosSimilarity(tf.get(doc),centroidi.get(tnp));
+                if(s>maxsim){ maxsim=s; NP=tnp; }
+            }
+            System.out.println(doc+" -> " + NP);
+        }
+        System.out.println("*** END ***\n");
+        
+    }
+    
+    public static void testCentroidiRocchio(){
+        System.out.println("***Centroidi Rocchio***");
+        for(String doc:testdoc){
+            Type NP = Type.AMBIENTE;
+            Double maxsim = Double.MIN_VALUE;
+            for(Type tnp:Type.values()){
+                Double s = cosSimilarity(tf.get(doc),centroidiRocchio.get(tnp));
+                if(s>maxsim){ maxsim=s; NP=tnp; }
+            }
+            System.out.println(doc+" -> " + NP);
+        }
+        System.out.println("*** END ***\n");
+        
+    }
+    
+    public static void testCentroidiRocchioMigliorato(){
+        System.out.println("***Centroidi Rocchio Migliorato***");
+        for(String doc:testdoc){
+            Type NP = Type.AMBIENTE;
+            Double maxsim = Double.MIN_VALUE;
+            for(Type tnp:Type.values()){
+                Double s = cosSimilarity(tf.get(doc),centroidiRocchioMigliorato.get(tnp));
+                if(s>maxsim){ maxsim=s; NP=tnp; }
+            }
+            System.out.println(doc+" -> " + NP);
+        }
+        System.out.println("*** END ***\n");
+        
+    }
 }
 
 enum Type {
