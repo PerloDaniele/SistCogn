@@ -1,0 +1,28 @@
+
+S  := NP VP 
+
+NP := Paolo | Francesca | Caronte | Dante | Virgilio | Beatrice
+
+NP := DT N | CG NP | TT N
+
+CG := NP CC  
+
+CC := e
+
+N  := uomo | donne | inferno | dono | stelle | donna | uomini
+
+TT := T DT
+
+DT := un | le | gli | una
+
+VP := V NP | VI | VP CA
+
+V  := ama | odia | sognano | adora | visitano | lasciano | rivede | adorano
+
+T  := tutti | tutte
+
+VI := naviga
+
+CA := PR NP
+
+PR := a
