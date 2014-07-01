@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  *
@@ -56,6 +57,12 @@ public class CFGrammar {
                             termini.add(s);
 
                         }
+                        for(Simbolo s:simboli){
+                            for(Simbolo t:termini){
+                                if(s.equals(t))
+                                    t.from.addAll(s.from);
+                            }
+                        }
                         simboli.addAll(termini);
                         produzioni.add(termini);
                     }
@@ -85,11 +92,11 @@ public class CFGrammar {
     class Simbolo {
 
         String t;
-        List<Simbolo> from;
+        Set<Simbolo> from;
         List<List<Simbolo>> produzioni;
         
         Simbolo(String s) {
-            from = new ArrayList();
+            from = new HashSet();
             produzioni = new ArrayList();
             t = s;
         }

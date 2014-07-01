@@ -5,7 +5,9 @@
 package sistcognescky;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import sistcognescky.CFGrammar.Simbolo;
 
 /**
@@ -15,14 +17,13 @@ import sistcognescky.CFGrammar.Simbolo;
 public class SistCognEsCKY {
 
     static CFGrammar grammar = null;
-    static final String fileCFG = "../CFG1";
+    static final String fileCFG = "../../Punto1/CFG1";
     static final boolean DEBUG = false;
-    
+    static final String frase="Dante e una donna lasciano un dono a Virgilio";
 
     public static void main(String[] args) {
         grammar = new CFGrammar(fileCFG);
         System.out.println("Grammatica Caricata");
-        String frase = "Dante e un uomo visitano un inferno";
         System.out.println(frase + " -> " + CYK(frase));
         
     }
@@ -33,11 +34,11 @@ public class SistCognEsCKY {
         for (int i = 0; i < words.length; i++) {
             words[i] = words[i].trim();
         }
-        List<Simbolo>[][] table = new List[words.length][words.length+1];
+        Set<Simbolo>[][] table = new Set[words.length][words.length+1];
         List<Simbolo> regola;
         for(int i=0;i<words.length;i++)
             for(int j=0;j<words.length+1;j++)
-                table[i][j] = new ArrayList<>();
+                table[i][j] = new HashSet<>();
 
         for (int j = 1; j <= words.length; j++) {
             Simbolo s = grammar.terminali.get(words[j - 1]);
