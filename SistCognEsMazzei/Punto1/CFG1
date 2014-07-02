@@ -13,15 +13,13 @@ N  := uomo | donne | inferno | dono | stelle | donna | uomini
 
 DT := un | le | gli | una
 
-VP := V NP | VI | VP CA
+VP := V NP | naviga | VP CT
 
 V  := ama | odia | sognano | adora | visitano | lasciano | rivede | adorano
 
 T  := tutti | tutte
 
-VI := naviga
-
-CA := PR NP
+CT := PR NP
 
 PR := a
 

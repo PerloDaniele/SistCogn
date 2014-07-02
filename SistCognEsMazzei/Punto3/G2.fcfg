@@ -21,22 +21,22 @@ DT[NUM=?n,SEM=?dt] -> Art[NUM=?n,SEM=?dt]
 
 VP[NUM=?n,SEM=<?v(?obj)>] -> V[NUM=?n,SEM=?v] NP[SEM=?obj]
 VP[NUM=?n,SEM=<?vi>] -> VI[NUM=?n,SEM=?vi] 
-VP[NUM=?n,SEM=<?vp(?ca)>] -> VP[NUM=?n,SEM=?vp] CA[SEM=?ca]
+VP[NUM=?n,SEM=<?vp(?ca)>] -> VP[NUM=?n,SEM=?vp] CT[SEM=?ca]
 VP[NUM=?n,SEM=<?vp(?ca)>] -> VP[NUM=?n,SEM=?vp] NP[SEM=?ca]
 
-CA[NUM=?n,SEM=?np] -> PR[NUM=?n] NP[NUM=?n,SEM=?np]
+CT[NUM=?n,SEM=?np] -> PR[NUM=?n] NP[NUM=?n,SEM=?np]
 
 
 #############################
 # Lexical Rules
 #############################
 
-PropN[NUM=sg,SEM=<\P.P(paolo)>] -> 'Paolo'
-PropN[NUM=sg,SEM=<\P.P(francesca)>] -> 'Francesca'
-PropN[NUM=sg,SEM=<\P.P(caronte)>] -> 'Caronte'
-PropN[NUM=sg,SEM=<\P.P(dante)>] -> 'Dante'
-PropN[NUM=sg,SEM=<\P.P(virgilio)>] -> 'Virgilio'
-PropN[NUM=sg,SEM=<\P.P(beatrice)>] -> 'Beatrice'
+PropN[NUM=sg,SEM=<\P.P(Paolo)>] -> 'Paolo'
+PropN[NUM=sg,SEM=<\P.P(Francesca)>] -> 'Francesca'
+PropN[NUM=sg,SEM=<\P.P(Caronte)>] -> 'Caronte'
+PropN[NUM=sg,SEM=<\P.P(Dante)>] -> 'Dante'
+PropN[NUM=sg,SEM=<\P.P(Virgilio)>] -> 'Virgilio'
+PropN[NUM=sg,SEM=<\P.P(Beatrice)>] -> 'Beatrice'
 
 Cong[NUM=pl,SEM=<\X Y R.(X(R) & Y(R))>] -> 'e'
 
@@ -49,9 +49,11 @@ ComN[GEN=f,NUM=pl,SEM=<\x.woman(x)>] -> 'donne'
 ComN[GEN=m,NUM=pl,SEM=<\x.man(x)>] -> 'uomini'
 
 Art[GEN=m,NUM=sg,SEM=<\P Q.(exists x.(P(x) & Q(x)))>] -> 'un'
-Art[GEN=f,NUM=pl,SEM=<\P Q.exists x.((P(x) & Q(x)) & all y.(P(y) -> (x=y)))>] -> 'le'
-Art[GEN=m,NUM=pl,SEM=<\P Q.exists x.((P(x) & Q(x)) & all y.(P(y) -> (x=y)))>] -> 'gli'
 Art[GEN=f,NUM=sg,SEM=<\P Q.exists x.(P(x) & Q(x))>] -> 'una'
+#Art[GEN=f,NUM=pl,SEM=<\P Q.exists x.((P(x) & Q(x)) & all y.(P(y) -> (x=y)))>] -> 'le'
+#Art[GEN=m,NUM=pl,SEM=<\P Q.exists x.((P(x) & Q(x)) & all y.(P(y) -> (x=y)))>] -> 'gli'
+Art[GEN=f,NUM=pl,SEM=<\P Q.(exists x.(P(x) & Q(x)))>] -> 'le'
+Art[GEN=m,NUM=pl,SEM=<\P Q.(exists x.(P(x) & Q(x)))>] -> 'gli'
 
 
 V[NUM=sg,SEM=<\X x.X(\y.love(x,y))>] -> 'ama'
@@ -59,8 +61,8 @@ V[NUM=sg,SEM=<\X x.X(\y.hate(x,y))>] -> 'odia'
 V[NUM=pl,SEM=<\X x.X(\y.dream(x,y))>] -> 'sognano'
 V[NUM=sg,SEM=<\X x.X(\y.worship(x,y))>] -> 'adora'
 V[NUM=pl,SEM=<\X x.X(\y.visit(x,y))>] -> 'visitano'
-V[NUM=pl,SEM=<\Y X x.X(\z.Y(\y.leave(x,y,z)))>] -> 'lasciano'
-V[NUM=sg,SEM=<\X x.X(\y.see_again(x,y))>] -> 'rivede'
+V[NUM=pl,SEM=<\Y X x.X(\z.Y(\y.give(x,y,z)))>] -> 'lasciano'
+V[NUM=sg,SEM=<\X x.X(\y.see(x,y))>] -> 'rivede'
 V[NUM=pl,SEM=<\X x.X(\y.worship(x,y))>] -> 'adorano'
 
 VI[NUM=sg,SEM=<\x. sail(x)>] -> 'naviga'

@@ -24,11 +24,11 @@ public class SistCognEsCKY {
     public static void main(String[] args) {
         grammar = new CFGrammar(fileCFG);
         System.out.println("Grammatica Caricata");
-        System.out.println(frase + " -> " + CYK(frase));
+        System.out.println(frase + " -> " + CKY(frase));
         
     }
 
-    private static Boolean CYK(String frase) {
+    private static Boolean CKY(String frase) {
 
         String[] words = frase.split(" ");
         for (int i = 0; i < words.length; i++) {

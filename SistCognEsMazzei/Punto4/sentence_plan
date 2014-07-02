@@ -1,0 +1,10 @@
+{"OBJ": ["Francesca"], "VERB": "love", "SUBJ": ["Paolo"]}
+{"OBJ": ["Francesca"], "QUANTSUBJ": {"0": "exist"}, "VERB": "love", "SUBJ": ["man"]}
+{"QUANTOBJ": {"0": "exist"}, "OBJ": ["man"], "VERB": "hate", "SUBJ": ["Francesca"]}
+{"OBJ": ["Francesca", "Beatrice"], "VERB": "dream", "SUBJ": ["Paolo", "Dante"]}
+{"QUANTOBJ": {"0": "exist"}, "QUANTSUBJ": {"0": "all"}, "VERB": "worship", "SUBJ": ["man"], "OBJ": ["woman"]}
+{"QUANTOBJ": {"0": "all"}, "QUANTSUBJ": {"0": "exist"}, "VERB": "worship", "SUBJ": ["man"], "OBJ": ["woman"]}
+{"VERB": "sail", "SUBJ": ["Caronte"]}
+{"QUANTOBJ": {"0": "exist"}, "QUANTSUBJ": {"1": "exist"}, "VERB": "visit", "SUBJ": ["Dante", "man"], "OBJ": ["hell"]}
+{"QUANTOBJ": {"0": "exist"}, "CTERM": "Virgilio", "VERB": "give", "QUANTSUBJ": {"0": "exist"}, "OBJ": ["gift"], "SUBJ": ["woman", "Dante"]}
+{"QUANTOBJ": {"0": "exist"}, "OBJ": ["star"], "VERB": "see", "SUBJ": ["Dante"]}

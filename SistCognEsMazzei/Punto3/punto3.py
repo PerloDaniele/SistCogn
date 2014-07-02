@@ -2,7 +2,7 @@ import nltk
 from nltk import load_parser
 parser = load_parser('file:G2.fcfg', trace=0)
 
-out_file = open("test_nltk","w")
+out_file = open("text_plan_nltk","w")
 
 in_file = open("../frasi","r")
 while 1:
