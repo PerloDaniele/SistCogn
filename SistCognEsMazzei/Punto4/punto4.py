@@ -1,4 +1,17 @@
 
+#produzione di un sentence-plan
+#partendo dal text-plan costruito con l'ausilio di nltk, viene generata
+#una struttura gerarchica contenente gli elementi del discorso descritti in modo
+#tale da poter essere utilizzata come base per la generazione automatica di frasi.
+#
+#
+
+import sys
+import re
+import json
+
+INPUT = sys.stdin
+
 def remDup(seq):
     output = []
     for x in seq:
@@ -6,28 +19,17 @@ def remDup(seq):
             output.append(x)
     return output
 
+def sentencePlan(sentence):
 
+    NounRE = '\w+\d*'
+    verbRE = '(.*\s)?(\w+)(\('+NounRE+','+NounRE+'(,('+NounRE+'))?\)).*'
+    verbIRE = '(.*\s)?(\w+)(\('+NounRE+'\)).*'
+    subjRE = '.*\(('+NounRE+').*'
+    objRE = '.*,('+NounRE+').*'
+    CTermRE = ',('+NounRE+')'
+    intransitive=0
+    splan="Frase non gestita"
 
-import re
-import json
-
-out_file = open("sentence_plan","w")
-
-in_file = open("../Punto3/text_plan_nltk","r")
-
-NounRE = '\w+\d*'
-verbRE = '(.*\s)?(\w+)(\('+NounRE+','+NounRE+'(,('+NounRE+'))?\)).*'
-verbIRE = '(.*\s)?(\w+)(\('+NounRE+'\)).*'
-subjRE = '.*\(('+NounRE+').*'
-objRE = '.*,('+NounRE+').*'
-CTermRE = ',('+NounRE+')'
-intransitive=0
-
-while 1:
-    sentence = in_file.readline()
-    if sentence == "":
-        break
-    
     matchObj = re.match( verbRE , sentence, re.M|re.I)
     if matchObj is None:
         matchObj = re.match( verbIRE , sentence, re.M|re.I)
@@ -108,28 +110,86 @@ while 1:
             else:
                 cterm = newobj.group(3)
 
+        for i in range(0,len(subjs)):
+            subjSpec={}
+            subjSpec['NOUN']=subjs[i]
+            if i in quantSbj:
+                subjSpec['QUANT']=quantSbj[i]
+                if quantSbj[i]=="all":
+                    subjSpec['NUM']="pl"
+                else:
+                    subjSpec['NUM']="sg"
+            else:
+                subjSpec['NUM']="sg"
+            subjs[i]=subjSpec
 
-        #splan={'VERB' : verb , 'SUBJ' : subjs , 'QUANTSUBJ' : quantSbj, 'OBJ' : objs , 'QUANTOBJ' : quantObj, 'CTERM' : cterm, 'QUANTCTERM' : quantCterm}
+        for i in range(0,len(objs)):
+            objSpec={}
+            objSpec['NOUN']=objs[i]
+            if i in quantObj:
+                objSpec['QUANT']=quantObj[i]
+                if quantObj[i]=="all":
+                    objSpec['NUM']="pl"
+                else:
+                    objSpec['NUM']="sg"
+            else:
+                objSpec['NUM']="sg"
+            objs[i]=objSpec
+    
+        if len(cterm)>0:
+            cTermSpec={}
+            cTermSpec['NOUN']=cterm
+            if len(quantCterm)>0:
+                cTermSpec['QUANT']=quantCterm[i]
+                if quantCterm=="all":
+                    cTermSpec['NUM']="pl"
+                else:
+                    cTermSpec['NUM']="sg"
+            else:
+                cTermSpec['NUM']="sg"
+            cterm=cTermSpec
+
         splan={"VERB" : verb , "SUBJ" : subjs }
-        if len(quantSbj)>0:
-            splan["QUANTSUBJ"]=quantSbj
-        if len(quantObj)>0:
-            splan["QUANTOBJ"]=quantObj
         if len(objs)>0:
             splan["OBJ"]=objs
         if len(cterm)>0:
             splan["CTERM"]=cterm
-        if len(quantCterm)>0:
-            splan["QUANTCTERM"]=quantCterm
 
         splan=json.dumps(splan)
-        print splan
-        out_file.write(str(splan)+"\n")
-        intransitive=0;
+
     else:
         print "No match!!"
+    return splan
 
 
-in_file.close()
-out_file.close()
 
+def main():
+    fromStdin = 0
+    if len(sys.argv)>1: 
+        print sentencePlan(sys.argv[1])
+    else: 
+        for line in INPUT: 
+            forimStdin=1
+            print sentencePlan(line)
+            break
+        
+        if fromStdin==0:
+            out_file = open("sentence_plan","w")
+
+            in_file = open("../Punto3/text_plan_nltk","r")
+
+            while 1:
+                sentence = in_file.readline()
+                if sentence == "":
+                    break
+        
+                splan = sentencePlan(sentence)
+                print splan
+                out_file.write(str(splan)+"\n")
+
+            in_file.close()
+            out_file.close()
+
+
+if __name__ == '__main__':
+    main()

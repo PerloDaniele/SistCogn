@@ -39,9 +39,12 @@ public class SistCognEs4 {
     static HashMap<Type, HashMap<String, Double>> centroidiRocchioMigliorato=null;
     static final int beta=16;
     static final int gamma=4;
+    static final String training = "./docs_200/training";
+    static final String test = "./docs_200/test";
+    static final String all = "./docs_200/all";
     
-    static final String tfFile = "tfbabel.ser";
-    //static final String tfFile = "tflemm.ser";
+    //static final String tfFile = "tfbabel.ser";
+    static final String tfFile = "tflemm.ser";
     
     
     
@@ -70,9 +73,9 @@ public class SistCognEs4 {
     public static void listeDocumenti(){
         trainingdoc=new ArrayList<>();
         testdoc=new ArrayList<>();
-        File dir = new File("./docs_200/test");
+        File dir = new File(training);
         Collections.addAll(trainingdoc,dir.list());
-        dir = new File("./docs_200/training");
+        dir = new File(test);
         Collections.addAll(testdoc,dir.list());
         Collections.sort(testdoc);
     }
@@ -93,7 +96,7 @@ public class SistCognEs4 {
             try {
                 wa = new WordAnalisys();
                 System.out.println("inizio apprendimento tf...");
-                File trainingDir = new File("./docs_200/all");
+                File trainingDir = new File(all);
                 BufferedReader b;
                 String content = "";
 
@@ -102,7 +105,7 @@ public class SistCognEs4 {
                 //per ogni documento
                 for (String doc : trainingDir.list()) {
                     System.out.println("Documento: " + doc);
-                    b = new BufferedReader(new FileReader("./docs_200/all/" + doc));
+                    b = new BufferedReader(new FileReader(all + doc));
 
                     //contenuto come sequenza di caratteri
                     content = "";
@@ -258,8 +261,13 @@ public class SistCognEs4 {
                     Double s = cosSimilarity(centroidi.get(t),centroidi.get(tnp));
                     if(s>maxsim){ maxsim=s; NP=tnp; }
                 }
-            
-            
+            //DEBUG NEAR POSITIVE
+            /*
+            System.out.println(".....");
+            System.out.println(t);
+            System.out.println(NP);
+            System.out.println(".....");
+            */
             for(String term : aus.keySet()){
                 aus.put(term, beta*aus.get(term)/profiles.get(t).size() - gamma*aus.get(term)/(profiles.get(NP).size()));
             }
