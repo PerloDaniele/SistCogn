@@ -1,6 +1,5 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Creazione e interrogazione Triple Store
  */
 package sistcognes5;
 
@@ -40,21 +39,22 @@ import java.util.Properties;
  */
 public class SistCognEs5 {
 
-    /**
-     * @param args the command line arguments
-     */
+    
     static Model model = null;
 
     public static void main(String[] args) {
 
         caricaTripleStore();
+        //ricerca su creatore
         queryCreator("Topo Gigio");
+        //ricerca su descrizione
         queryDescription("Russia creates its own Silicon Valley.");
         queryDescription("Gianni mangia la mela");
 
 
     }
 
+    //lettura collezione di documenti
     public static List<String> recuperoDocumenti() {
         ArrayList docs = new ArrayList<>();
         File dir = new File("./news_collection");
@@ -79,10 +79,12 @@ public class SistCognEs5 {
             try {
                 System.out.println("rdf inesistente, creazione...");
 
+                //istanza Stanford
                 Properties props = new Properties();
                 props.put("annotators", "tokenize, ssplit, pos, lemma, parse");
                 StanfordCoreNLP pipeline = new StanfordCoreNLP(props, false);
 
+                //caricamento stowords
                 BufferedReader stopfile = new BufferedReader(new FileReader("../stop_words/stop_words_FULL.txt"));
                 ArrayList<String> stopwords = new ArrayList<String>();
                 while (stopfile.ready()) {
@@ -94,8 +96,10 @@ public class SistCognEs5 {
                 BufferedReader buff;
                 Resource res;
                 String line, content, date;
+                //aurore topogigio
                 int topogigio = 2;
 
+                //per ogni documento
                 for (String doc : docs) {
                     buff = new BufferedReader(new FileReader("./news_collection/" + doc));
                     int countText = 0;
@@ -108,14 +112,17 @@ public class SistCognEs5 {
                         line = buff.readLine();
                         if (!line.trim().isEmpty() && line.charAt(0) == '#' && line.contains("http:")) {
                             split = line.trim().split(" ");
+                            //creo la risorsa
                             res = model.createResource(split[split.length - 1]);
                         }
                         if (!line.trim().isEmpty() && line.charAt(0) != '#') {
                             countText++;
                             if (countText == 1) {
+                                //aggiungo il titolo
                                 res.addProperty(DC.title, line);
                                 content = line;
                             } else if (countText == 2) {
+                                //aggiungo descrizione
                                 res.addProperty(DC.description, line);
                                 content += " " + line;
                             } else {
@@ -124,6 +131,7 @@ public class SistCognEs5 {
                             }
                         }
                     }
+                    //aggiungo data e autore e publisher
                     res.addProperty(DC.date, date);
                     if (topogigio != 0) {
                         res.addProperty(DC.creator, "Topo Gigio");
@@ -134,6 +142,7 @@ public class SistCognEs5 {
 
                     res.addProperty(DC.publisher, "BBC");
 
+                    //lemmatizzazione del testo per la creazione del subject
                     Annotation document = pipeline.process(content);
                     String text = "";
                     for (CoreMap sentence : document.get(SentencesAnnotation.class)) {
@@ -145,7 +154,7 @@ public class SistCognEs5 {
                     List<String> words = new ArrayList<>();
                     String[] sptemp = text.replaceAll("([^a-zA-Zàéèìòù ])", " ").replaceAll("( )+", " ").trim().toLowerCase().split(" ");
                     Collections.addAll(words, sptemp);
-
+                    //rimuovo stopwords
                     for (int i = 0; i < sptemp.length; i++) {
                         if (stopwords.contains(sptemp[i])) {
                             words.remove(sptemp[i]);
@@ -160,7 +169,7 @@ public class SistCognEs5 {
                         }
                         hs.put(word, num + 1);
                     }
-
+                    //prendo i 3 termini + frequenti
                     String[] subj = new String[3];
                     int primo = 0, secondo = 0, terzo = 0;
                     for (String word : hs.keySet()) {
@@ -181,7 +190,7 @@ public class SistCognEs5 {
                             terzo = hs.get(word);
                         }
                     }
-
+                    //aggiungo i subject
                     res.addProperty(DC.subject, subj[0] + ", " + subj[1] + ", " + subj[2]);
 
                 }
@@ -198,6 +207,7 @@ public class SistCognEs5 {
 
     }
 
+    //creo la query per cercare tramite creatore
     public static void queryCreator(String creator) {
         String queryString = "PREFIX dc:  <http://purl.org/dc/elements/1.1/> SELECT ?doc ?title "
                 + "WHERE { ?doc dc:creator \"" + creator + "\" . ?doc dc:title ?title .}";
@@ -208,10 +218,8 @@ public class SistCognEs5 {
             System.out.println("\nDocumenti di " + creator + "\n----");
             for (; results.hasNext();) {
                 QuerySolution soln = results.nextSolution();
-                RDFNode x = soln.get("doc");       // Get a result variable by name.
-                //Resource r = soln.getResource("res"); // Get a result variable - must be a resource
-                Literal l = soln.getLiteral("title");   // Get a result variable - must be a literal
-                //System.out.println(x+"\t"+r+"\t"+l);
+                RDFNode x = soln.get("doc");
+                Literal l = soln.getLiteral("title");   
                 System.out.println("Document\n" + x + "\nTitle\n" + l + "\n-----");
             }
         } finally {
@@ -219,6 +227,7 @@ public class SistCognEs5 {
         }
     }
 
+    //creo la query per cercare tramite descrizione
     public static void queryDescription(String title) {
         String queryString = "PREFIX dc:  <http://purl.org/dc/elements/1.1/> SELECT ?doc ?description "
                 + "WHERE { ?doc dc:title \"" + title + "\" . ?doc dc:description ?description .}";
@@ -229,10 +238,8 @@ public class SistCognEs5 {
             System.out.println("\nDocumento \"" + title + "\"\n----");
             for (; results.hasNext();) {
                 QuerySolution soln = results.nextSolution();
-                RDFNode x = soln.get("doc");       // Get a result variable by name.
-                //Resource r = soln.getResource("res"); // Get a result variable - must be a resource
-                Literal l = soln.getLiteral("description");   // Get a result variable - must be a literal
-                //System.out.println(x+"\t"+r+"\t"+l);
+                RDFNode x = soln.get("doc");
+                Literal l = soln.getLiteral("description");
                 System.out.println("Document\n" + x + "\nDescription\n" + l + "\n-----");
             }
         } finally {

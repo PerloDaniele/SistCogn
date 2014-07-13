@@ -1,6 +1,7 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Classe che permette di calcolare i WordVectors (tf) tramite lemmatizzazione o 
+ * i word sense di BabelNet
+ * 
  */
 package sistcognes4;
 
@@ -37,17 +38,20 @@ public class WordAnalisys {
 
     private HashSet<String> stopwords;
     private BabelNet bn = null;
+    //risultati computazioni precedenti
     private HashMap<String, List<String>> preSense;
     private HashMap<String, List<List<String>>> preGloss;
+    //connessione al db
     private Connection connect;
     private Statement statement;
-    private final List<String> ANullo = new ArrayList<String>();
-    private final HashMap<String, Double> HNullo = new HashMap<String, Double>();
+    private final List<String> ANullo = new ArrayList<>();
+    private final HashMap<String, Double> HNullo = new HashMap<>();
 
     public WordAnalisys() {
         try {
+            //caricamento stopword
             BufferedReader stopfile = new BufferedReader(new FileReader("../stop_words/stop_it.txt"));
-            stopwords = new HashSet<String>();
+            stopwords = new HashSet<>();
 
             while (stopfile.ready()) {
                 String linea = stopfile.readLine();
@@ -60,6 +64,7 @@ public class WordAnalisys {
                 }
             }
 
+            //connessione al db
             Class.forName("com.mysql.jdbc.Driver");
             connect = DriverManager.getConnection("jdbc:mysql://localhost/morphit?user=root&password=");
             statement = connect.createStatement();
@@ -71,6 +76,7 @@ public class WordAnalisys {
 
     }
 
+    //WordVector sulla base di lemmi
     public List<String> termsByLemming(String frase) {
         if (frase.isEmpty()) {
             return ANullo;
@@ -80,9 +86,10 @@ public class WordAnalisys {
             ResultSet resultSet;
             String query;
 
-            HashSet<String> hs = new HashSet<String>();
+            HashSet<String> hs = new HashSet<>();
             List<String> words = removeStopWords(frase);
 
+            //lemmatizzazione
             query = "select lemma from morphit";
             if (words.size() > 0) {
                 query += " where features like '%NOUN%' and form in ('" + words.get(0) + "'";
@@ -104,7 +111,8 @@ public class WordAnalisys {
             return null;
         }
     }
- 
+
+    //WordVector sulla base di lemmi e calcolo tf
     public HashMap<String, Double> termsByLemmingFreq(String frase) {
         if (frase.isEmpty()) {
             return HNullo;
@@ -114,11 +122,11 @@ public class WordAnalisys {
             ResultSet resultSet;
             String query;
 
-            HashMap<String, Double> hs = new HashMap<String, Double>();
+            HashMap<String, Double> hs = new HashMap<>();
             List<String> words = removeStopWords(frase);
 
             int size = 0;
-
+            //lemmatizzazione
             query = "select lemma from morphit";
             if (words.size() > 0) {
                 query += " where features like '%NOUN%' and form in ('" + words.get(0) + "'";
@@ -138,7 +146,7 @@ public class WordAnalisys {
                 }
                 hs.put(resultSet.getString("lemma"), num + 1);
             }
-
+            //calcolo frequenza
             for (String k : hs.keySet()) {
                 hs.put(k, hs.get(k) / size);
             }
@@ -149,10 +157,11 @@ public class WordAnalisys {
             return null;
         }
     }
-    
+
+    //WordVector sulla base di BabelSense e calcolo tf
     public HashMap<String, Double> termsBySenseFreq(String frase) {
         try {
-
+            //avvio BabelNet e recupero possibili computazioni parziali
             if (bn == null) {
                 bn = BabelNet.getInstance();
                 preSense = new HashMap<>();
@@ -162,17 +171,17 @@ public class WordAnalisys {
                     preSense = (HashMap<String, List<String>>) input.readObject();
                     input = new ObjectInputStream(new BufferedInputStream(new FileInputStream("gloss.tmp")));
                     preGloss = (HashMap<String, List<List<String>>>) input.readObject();
-                    
+
                 } catch (Exception ex) {
                 }
             }
 
             HashMap<String, Double> listTerms = tBLF(frase);
             int size = 0;
-            HashMap<String, Double> ret = new HashMap<String, Double>();
+            HashMap<String, Double> ret = new HashMap<>();
 
             List<BabelSynset> synsets;
-            List<Integer> scores = new ArrayList<Integer>();
+            List<Integer> scores = new ArrayList<>();
             List<BabelGloss> gloss;
             List<String> split;
             String g;
@@ -182,26 +191,25 @@ public class WordAnalisys {
             List<String> tsenses;
             List<List<String>> tglosses;
 
+            //per ogni termine della frase
             for (String termine : listTerms.keySet()) {
 
-                //DEBUG
-                //termine="corona"; //IllegalArgumentException on sort
-                //DEBUG
                 scores.clear();
                 winner = 0;
                 cwinner = 0;
                 size += listTerms.get(termine);
+                //se non lo ho mai trattato
                 if (!preSense.containsKey(termine)) {
-                    //System.out.println("{{"+termine+"}}");
+                    //estraggo synsets
                     synsets = bn.getSynsets(Language.IT, termine);
                     try {
                         Collections.sort(synsets, new BabelSynsetComparator(termine));
                     } catch (IllegalArgumentException ext) {
                     }
 
-                    tsenses = new ArrayList<String>();
-                    tglosses = new ArrayList<List<String>>();
-
+                    tsenses = new ArrayList<>();
+                    tglosses = new ArrayList<>();
+                    //per ognuno estraggo i gloss
                     for (BabelSynset synset : synsets) {
                         tsenses.add(synset.getMainSense());
                         g = "";
@@ -210,6 +218,7 @@ public class WordAnalisys {
                             g = gloss.get(0).getGloss();
                         }
 
+                        //lemmatizzo tutto
                         split = termsByLemming(g);
                         tglosses.add(split);
 
@@ -229,6 +238,7 @@ public class WordAnalisys {
                     synsets.clear();
 
                 } else {
+                    //algoritmo lesk per scegliere il senso migliore
                     for (List<String> glosses : preGloss.get(termine)) {
                         int score = 0;
                         for (String s : glosses) {
@@ -240,7 +250,7 @@ public class WordAnalisys {
                     }
                 }
 
-
+                //calcolo vincitore
                 for (int j = 0; j < scores.size(); j++) {
                     if (cwinner < scores.get(j)) {
                         winner = j;
@@ -248,6 +258,7 @@ public class WordAnalisys {
                     }
                 }
 
+                //inserisco il vincitore
                 if (preSense.get(termine).size() > 0) {
 
                     sense = preSense.get(termine).get(winner);
@@ -261,13 +272,13 @@ public class WordAnalisys {
 
 
             }
-
+            //calcolo tf
             for (String k : ret.keySet()) {
                 ret.put(k, ret.get(k) / size);
             }
-            
+
             savecaches();
-                    
+
             return ret;
         } catch (Exception e) {
             e.printStackTrace();
@@ -275,8 +286,8 @@ public class WordAnalisys {
         }
     }
 
-    ;
-        
+    
+    //rimozione Stopwords
     private List<String> removeStopWords(String frase) {
         try {
             frase = frase.replaceAll("([^a-zA-Zàéèìòù ])", " ").replaceAll("( )+", " ").trim().toLowerCase();
@@ -302,6 +313,7 @@ public class WordAnalisys {
         return stopwords.contains(frase);
     }
 
+    //lemmatizzazione termini frase per BableNet (frequency)
     private HashMap<String, Double> tBLF(String frase) {
         if (frase.isEmpty()) {
             return HNullo;
@@ -311,11 +323,9 @@ public class WordAnalisys {
             ResultSet resultSet;
             String query;
 
-            HashMap<String, Double> hs = new HashMap<String, Double>();
+            HashMap<String, Double> hs = new HashMap<>();
             List<String> words = removeStopWords(frase);
-
-            int size = 0;
-
+            
             query = "select lemma from morphit";
             if (words.size() > 0) {
                 query += " where features like '%NOUN%' and form in ('" + words.get(0) + "'";
@@ -328,7 +338,7 @@ public class WordAnalisys {
             words.clear();
 
             while (resultSet.next() && !isStopWord(resultSet.getString("lemma"))) {
-                size++;
+                
                 double num = 0;
                 if (hs.containsKey(resultSet.getString("lemma"))) {
                     num = hs.remove(resultSet.getString("lemma"));
@@ -343,6 +353,7 @@ public class WordAnalisys {
         }
     }
 
+    //salvataggio computazioni parziali
     public void savecaches() {
         try {
             ObjectOutput output = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("sense.tmp")));

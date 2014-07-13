@@ -1,6 +1,12 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * 
+ * Riconoscimento del contenuto dei documenti tramite la creazione di profili
+ * Si utilizza la cosine similarity come similarità tra i word vectors
+ * e si utilizzano centroidi classici, di Rocchio (Ottimizzati e non) come base 
+ * per il profiling, costruiti in seguito al training by examples
+ * 
+ * Si utilizzano word vectors utilizzano lemmi oppure i sense di BabelNet
+ * 
  */
 package sistcognes4;
 
@@ -27,41 +33,56 @@ import java.util.List;
  */
 public class SistCognEs4 {
 
+    //classe che precalcola i tf
     static WordAnalisys wa;
+    //tf
     static HashMap<String, HashMap<String, Double>> tf=null;
+    //tfidf
     static HashMap<String, HashMap<String, Double>> tfidf=null;
+    //lista profili
     static HashMap<Type, List<String>> profiles=null;
+    //idf
     static HashMap<String, Double> idf=null;
+    //documenti per il training
     static List<String> trainingdoc=null;
+    //documenti di test
     static List<String> testdoc=null;
+    //vari centroidi
     static HashMap<Type, HashMap<String, Double>> centroidi=null;
     static HashMap<Type, HashMap<String, Double>> centroidiRocchio=null;
     static HashMap<Type, HashMap<String, Double>> centroidiRocchioMigliorato=null;
+    //parametri per i centroidi calcolati con il metodo di Rocchio
     static final int beta=16;
     static final int gamma=4;
+    //sources dei doc
     static final String training = "./docs_200/training";
     static final String test = "./docs_200/test";
     static final String all = "./docs_200/all";
     
+    //IMPORTANTE: scommentare per il tipo di tf desiderato
+    //tf sulla base dei WordSense
     //static final String tfFile = "tfbabel.ser";
+    //tf sulla base dei lemmi
     static final String tfFile = "tflemm.ser";
     
     
-    
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         
         // Calcolo e recupero dei documenti e costruzione profili
         listeDocumenti();
+        //caricamento tf
         tf();
+        //calcolo idf sui doc di training, caricamento profili e calcolo tfidf
         idf();
         profili();
         tfidf();
+        
+        //calcolo die vari centroidi
         centroidi();
         centroidiRocchio();
         centroidiRocchioMigliorato();
+        
+        //test sui documenti di test
         testCentroidi();
         testCentroidiRocchio();
         testCentroidiRocchioMigliorato();
@@ -70,6 +91,7 @@ public class SistCognEs4 {
 
     }
     
+    //carica le liste dei documenti da utilizzare
     public static void listeDocumenti(){
         trainingdoc=new ArrayList<>();
         testdoc=new ArrayList<>();
@@ -80,10 +102,12 @@ public class SistCognEs4 {
         Collections.sort(testdoc);
     }
     
+    //caricamento WordVectors (tf)
     public static void tf(){
         boolean caricamento = true;
 
         try {
+            //carico da file
             ObjectInput input = new ObjectInputStream(new BufferedInputStream(new FileInputStream(tfFile)));
             tf = (HashMap<String, HashMap<String, Double>>) input.readObject();
             System.out.println("tf caricati!");
@@ -92,7 +116,8 @@ public class SistCognEs4 {
             caricamento = false;
         }
         if (!caricamento) {
-            tf = new HashMap<String, HashMap<String, Double>>();
+            //se il file non esiste calcolo i WordVectors
+            tf = new HashMap<>();
             try {
                 wa = new WordAnalisys();
                 System.out.println("inizio apprendimento tf...");
@@ -100,7 +125,7 @@ public class SistCognEs4 {
                 BufferedReader b;
                 String content = "";
 
-                HashSet<String> terms = new HashSet<String>();
+                HashSet<String> terms = new HashSet<>();
 
                 //per ogni documento
                 for (String doc : trainingDir.list()) {
@@ -150,6 +175,7 @@ public class SistCognEs4 {
     
     }
     
+    //calcolo idf
     public static void idf(){
         idf=new HashMap<>();
         int N=trainingdoc.size();
@@ -162,7 +188,7 @@ public class SistCognEs4 {
             idf.put(term, (n!=0)? Math.log(N/n) : 0.0 );
         }
     }
-    
+    //caricamento profili (tramite nome)
     public static void profili(){
         profiles = new HashMap<>();
         List<String> aus;
@@ -178,6 +204,7 @@ public class SistCognEs4 {
                 }
     }
     
+    //calcolo tfidf
     public static void tfidf(){
         tfidf = new HashMap<>();
         HashMap<String, Double> aus;
@@ -193,9 +220,11 @@ public class SistCognEs4 {
         
     }
     
+    //calcolo centroidi tradizionali
     public static void centroidi(){
         centroidi = new HashMap<>();
         HashMap<String,Double> aus;
+        //per ogni profilo
         for (Type t : Type.values()) {
             aus=new HashMap<>();
             for(String doc : profiles.get(t)){
@@ -208,6 +237,7 @@ public class SistCognEs4 {
                
                } 
             }
+            //media dei valori del wordvector tra i componenti del profilo
             for(String term : aus.keySet()){
                 aus.put(term, aus.get(term)/profiles.get(t).size());
             }
@@ -219,6 +249,7 @@ public class SistCognEs4 {
     public static void centroidiRocchio(){
         centroidiRocchio = new HashMap<>();
         HashMap<String,Double> aus;
+        //per ogni profilo
         for (Type t : Type.values()) {
             aus=new HashMap<>();
             for(String doc : profiles.get(t)){
@@ -231,6 +262,8 @@ public class SistCognEs4 {
                
                } 
             }
+            //calcolo del wordvector come somma pesata tra i valori dei documenti 
+            //appartenenti al profilo e non
             for(String term : aus.keySet()){
                 aus.put(term, beta*aus.get(term)/profiles.get(t).size() - gamma*aus.get(term)/(trainingdoc.size()-profiles.get(t).size()));
             }
@@ -241,6 +274,7 @@ public class SistCognEs4 {
     public static void centroidiRocchioMigliorato(){
         centroidiRocchioMigliorato = new HashMap<>();
         HashMap<String,Double> aus;
+        //per ogni profilo
         for (Type t : Type.values()) {
             aus=new HashMap<>();
             for(String doc : profiles.get(t)){
@@ -253,7 +287,10 @@ public class SistCognEs4 {
                
                } 
             }
-            
+            //calcolo del wordvector come somma pesata tra i valori dei documenti 
+            //appartenenti al profilo e near positive
+            //il profilo "near" e' quello con cosine similarity maggiore tra i
+            //centroidi classici
             Type NP = Type.AMBIENTE;
             Double maxsim = Double.MIN_VALUE;
             for(Type tnp:Type.values())
@@ -261,13 +298,7 @@ public class SistCognEs4 {
                     Double s = cosSimilarity(centroidi.get(t),centroidi.get(tnp));
                     if(s>maxsim){ maxsim=s; NP=tnp; }
                 }
-            //DEBUG NEAR POSITIVE
-            /*
-            System.out.println(".....");
-            System.out.println(t);
-            System.out.println(NP);
-            System.out.println(".....");
-            */
+
             for(String term : aus.keySet()){
                 aus.put(term, beta*aus.get(term)/profiles.get(t).size() - gamma*aus.get(term)/(profiles.get(NP).size()));
             }
@@ -275,6 +306,7 @@ public class SistCognEs4 {
         }
     }
     
+    //implementazione della cosine similarity
     public static Double modulo ( HashMap<String,Double> v){
     
         Double res=0.0;
@@ -297,6 +329,8 @@ public class SistCognEs4 {
         return prodScalare(v1,v2)/(modulo(v1)*modulo(v2));
     }
     
+    
+    //Test sui vari tipi di classificazione utilizzando la cosine similarity
     public static void testCentroidi(){
         System.out.println("***Centroidi tradizionali***");
         for(String doc:testdoc){
