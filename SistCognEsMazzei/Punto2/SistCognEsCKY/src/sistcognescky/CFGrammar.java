@@ -1,6 +1,5 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Classe che rappresenta una ContextFreeGrammar
  */
 package sistcognescky;
 
@@ -18,13 +17,19 @@ import java.util.Set;
  */
 public class CFGrammar {
 
+	//mapping stringa->simbolo non terminale
     public HashMap<String, Simbolo> nonTerminali;
+	//mapping stringa->simbolo terminale
     public HashMap<String, Simbolo> terminali;
-    public HashSet<Simbolo> simboli;
-    public Simbolo init;
+	//simboli totali    
+	public HashSet<Simbolo> simboli;
+	// S    
+	public Simbolo init;
 
     public CFGrammar(String fileCFG) {
-
+		
+		//lettura grammatica CF in forma normale di Chomsky
+		//una regola di riscrittura per linea 
         try {
             BufferedReader b = new BufferedReader(new FileReader(fileCFG));
             String line;
@@ -39,6 +44,8 @@ public class CFGrammar {
                 if (!line.isEmpty()) {
                     splits = line.split(":=");
                     line = line.substring(line.indexOf(":=") + 2);
+
+					//parte sinistra
                     nonTerm = new Simbolo(splits[0].trim());
                     if (nonTerminali.isEmpty()) {
                         init = nonTerm;
@@ -47,6 +54,8 @@ public class CFGrammar {
                     List<Simbolo> termini;
 
                     splits = line.split("\\|");
+					
+					//parte destra
                     for (int i = 0; i < splits.length; i++) {
                         termini = new ArrayList<>();
                         sprod = splits[i].trim().split(" ");
@@ -66,7 +75,8 @@ public class CFGrammar {
                         simboli.addAll(termini);
                         produzioni.add(termini);
                     }
-
+					
+					//inserisco nella lista dei non terminali
                     if (nonTerminali.containsKey(nonTerm.t)) {
                         nonTerm = nonTerminali.get(nonTerm.t);
                     }
@@ -89,10 +99,14 @@ public class CFGrammar {
         }
     }
 
+	//Classe che rappresenta il singolo simbolo
     class Simbolo {
 
+		//stringa simbolo
         String t;
+		//lita dei non terminali che producono il simbolo
         Set<Simbolo> from;
+		//lista delle produzioni del simbolo
         List<List<Simbolo>> produzioni;
         
         Simbolo(String s) {

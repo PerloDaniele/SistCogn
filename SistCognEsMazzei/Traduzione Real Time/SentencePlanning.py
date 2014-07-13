@@ -38,7 +38,6 @@ def sentencePlan(sentence):
         matchObj = re.match( verbIRE , sentence, re.M|re.I)
         intransitive=1
     if matchObj:
-        print "\nFrase : ", matchObj.group()
         verb=matchObj.group(2)
         subjs=[]
         objs=[]

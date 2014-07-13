@@ -1,6 +1,5 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Classe che implementa il modulo di Linguistic realization attraverso SimpleNLG
  */
 package sistcognessimplenlg;
 
@@ -22,6 +21,7 @@ import simplenlg.realiser.english.*;
 
 public class SistCognEsSimpleNLG {
 
+    //sentence plans e traduzioni
     final static String sentencePlan = "../../Punto4/sentence_plan";
     final static String translations = "../translations";
 
@@ -32,12 +32,18 @@ public class SistCognEsSimpleNLG {
         Boolean formStdin = false;
         while( input.ready() && (sentence = input.readLine()) != null ) {
             formStdin = true;
+            try{
             translate(sentence); 
+            }catch(Exception e){System.out.println("Impossibilie leggere il SentencePlan");}
         } 
         if (!formStdin && args.length == 0) {
+            try{
             translateAll();
+            }catch(Exception e){System.out.println("Impossibilie leggere i SentencePlans");}
         } else if(!formStdin){
+            try{
             translate(args[0]);
+            }catch(Exception e){System.out.println("Impossibilie leggere il SentencePlan");}
         }
 
     }
@@ -58,6 +64,7 @@ public class SistCognEsSimpleNLG {
 
                 SPhraseSpec p = nlgFactory.createClause();
 
+				//lettura del JSON e estrazione degli elementi della frase
                 JSONObject plan = (JSONObject) parser.parse(line);
 
                 setVerb(plan, p);
@@ -90,6 +97,7 @@ public class SistCognEsSimpleNLG {
 
     private static void setSubj(JSONObject plan, SPhraseSpec p, NLGFactory nlgFactory) {
 
+		//recupero dei soggetti della frase
         JSONArray subjs = (JSONArray) plan.get("SUBJ");
         Iterator<JSONObject> it = subjs.iterator();
         JSONObject currentsubj;
@@ -98,6 +106,7 @@ public class SistCognEsSimpleNLG {
         CoordinatedPhraseElement sCoord = null;
         do {
             currentsubj = it.next();
+			//estrazione nome e quantificatore
             String q = (String) currentsubj.get("QUANT");
             String noun = (String) currentsubj.get("NOUN");
             if (q == null) {
@@ -108,11 +117,13 @@ public class SistCognEsSimpleNLG {
                 }
                 s1 = nlgFactory.createNounPhrase(q, noun);
             }
+			//nel caso il nome fosse plurale
             if (((String) currentsubj.get("NUM")).equals("pl")) {
                 s1.setPlural(true);
             } else {
                 s1.setPlural(false);
             }
+			//nel cao di + soggetti
             if (c > 1) {
                 if (c > 1 && sCoord != null) {
                     sCoord.addCoordinate(s1);
@@ -132,6 +143,7 @@ public class SistCognEsSimpleNLG {
 
     private static void setObj(JSONObject plan, SPhraseSpec p, NLGFactory nlgFactory) {
 
+		//lettura degli oggetti dal JSON
         JSONArray objs = (JSONArray) plan.get("OBJ");
         if (objs != null) {
             Iterator<JSONObject> it = objs.iterator();
@@ -156,6 +168,7 @@ public class SistCognEsSimpleNLG {
                 } else {
                     o1.setPlural(false);
                 }
+				//nel caso di più oggetti
                 if (c > 1) {
                     if (c > 1 && oCoord != null) {
                         oCoord.addCoordinate(o1);
@@ -176,6 +189,7 @@ public class SistCognEsSimpleNLG {
 
     private static void setCterm(JSONObject plan, SPhraseSpec p, NLGFactory nlgFactory) {
 
+		//lettura del possibile complemento di termine dal JSON
         JSONObject jCTerm = (JSONObject) plan.get("CTERM");
         if (jCTerm != null) {
             NPPhraseSpec cterm;
