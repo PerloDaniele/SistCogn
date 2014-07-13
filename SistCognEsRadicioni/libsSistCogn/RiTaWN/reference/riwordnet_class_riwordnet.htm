@@ -1,0 +1,737 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>rita.wordnet : : RiWordnet</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="stylesheet.css" rel="stylesheet" type="text/css">
+</head>
+<body> 
+<center>
+<table width="800" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="header">
+	  <a href="../index.html" class="libName">RiTa</a><br>
+	  <a href="docs.htm">index</a></td>
+    <td class="descList"></td>
+  </tr>
+  <tr>		
+    <td valign="top" class="mainTextName">Name</td>
+    <td class="methodName">RiWordnet</td>
+  </tr>
+  <!--tr>
+    <td valign=top class="mainText">Examples</td>
+    <td valign=top class="descList"><pre>@example</pre></td>
+  </tr-->
+  <tr>
+    <td valign=top class="mainText">Description</td>
+    <td valign=top class="descList">Provides library support for application and applet access to Wordnet.
+ <p>
+ 
+ You can construct this object like so:
+ 
+ <pre>
+ RiWordnet wordnet = new RiWordnet(this);
+ </pre>
+ 
+ If you do not wish to use the embedded data files, but instead prefer a
+ pre-installed <br>
+ (local or remote) Wordnet installation, pass the filepath or URL of the
+ directory in which Wordnet is installed to the constructor as follows:
+ <p>
+ 
+ <pre>
+   (Note: windows paths require double backslashes as below)
+   
+   RiWordnet wordnet = new RiWordnet(this, &quot;c:\\Wordnet3.0\\&quot;);
+ </pre>
+ 
+ Generally three methods are provided for each relation type (e.g.,
+ getHyponyms(String, String), getHyponyms(String, String) and
+ getAllHyponyms(String,String) where the 1st returns hyponyms for a specific
+ sense (as specified by its unique id), the 2nd returns the most common sense,
+ and the 3rd returns all senses for the word/pos pair.
+ <p>
+ You can also retrieve the entire tree of hyponyms (down to the leaves) for a
+ specific sense of the word. (see VariousHyponyms.pde for examples)
+ 
+ <p>
+ Note: Valid wordnet parts-of-speech include (noun="n",verb="v",adj="a", and
+ adverb="r"). <br>
+ These can be specified either as literals or using the String constants:
+ 
+ <pre>
+    RiWordnet.NOUN
+    RiWordnet.VERB
+    RiWordnet.ADJ
+    RiWordnet.ADV
+ </pre>
+ <p>
+ Note: methods return null either when the query term is not found or there
+ are no entries for the relation type being sought.
+ 
+ <p>
+ For more info on the meaning of various wordnet concepts (synset, sense,
+ hypernym, etc), see: {@link http://wordnet.princeton.edu/gloss}
+ 
+ <p>
+ See the accompanying documentation for license information</td>
+  </tr>
+  <tr>
+    <td valign=top class="mainText">Constructors</td>
+    <td valign=top class="descList"><pre>RiWordnet(pApplet);
+RiWordnet(pApplet, wordnetInstallDir);
+</pre></td>
+  </tr>
+  
+     <tr>
+       <td class="mainText">Parameters</td>
+       <td valign=top class="descList">
+         <table border=0 cellspacing=0 cellpadding=0>
+           
+      <tr>
+        <td width="70" valign=top>wordnetInstallDir</td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>home directory for a pre-installed Wordnet installation.</td>
+	  </tr>
+    
+         </table>
+	   </td>
+	 </tr>
+   
+  
+     <tr>
+       <td class="mainText">Fields</td>
+       <td valign=top class="descList">
+         <table border=0 cellspacing=0 cellpadding=0>
+           
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_field_adj.htm">RiWordnet.ADJ</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>String constant for Adjective part-of-speech<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_field_adv.htm">RiWordnet.ADV</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>String constant for Adverb part-of-speech<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_field_noun.htm">RiWordnet.NOUN</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>String constant for Noun part-of-speech<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_field_verb.htm">RiWordnet.VERB</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>String constant for Verb part-of-speech<BR><BR></td>
+	  </tr>
+    
+         </table>
+	   </td>
+	 </tr>
+   
+  
+     <tr>
+       <td class="mainText">Methods</td>
+       <td valign=top class="descList">
+         <table border=0 cellspacing=0 cellpadding=0>
+           
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_exists.htm">exists()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Checks the existence of a 'word' in the ontology<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getallalsosees.htm">getAllAlsoSees()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns also-see terms for all senses ofword/pos or null if not found<br>
+ Holds for nouns (?) & adjectives<br>
+ Example: happy -> [cheerful, elated, euphoric, felicitous, joyful,
+ joyous...]<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getallantonyms.htm">getAllAntonyms()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns String[] of Antonyms for the 1st sense of <code>word</code> with
+ <code>pos</code> or null if not found<br>
+ Holds for adjectives only (?)<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getallcoordinates.htm">getAllCoordinates()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns coordinate terms for all sense of word/pos, or null if not found<br>
+ X is a coordinate term of Y if there exists a term Z which is the hypernym
+ of both X and Y.<br>
+ Examples:
+ <ul>
+ <li>blackbird and robin are coordinate terms (since they are both a kind of
+ thrush)
+ <li>gun and bow are coordinate terms (since they are both weapons)
+ <li>fork and spoon are coordinate terms (since they are both cutlery, or
+ eating utensils)
+ <li>hat and helmet are coordinate terms (since they are both a kind of
+ headgear or headdress)
+ </ul>
+ Example: arm -> [hind-limb, forelimb, flipper, leg, crus, thigh, arm...]<br>
+ Holds btwn nouns/nouns and verbs/verbs<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getallderivedterms.htm">getAllDerivedTerms()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns derived terms forall senses of word/pos or null if not found<br>
+ Holds for adverbs <br>
+ Example: happily -> [jubilant, blithe, gay, mirthful, merry, happy]<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getallexamples.htm">getAllExamples()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns examples for all senses of <code>word</code> with <code>pos</code>
+ if they contain the <code>word</code>, else null if not found<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getallglosses.htm">getAllGlosses()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns glosses for all senses of 'word' with 'pos', or null if not found<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getallholonyms.htm">getAllHolonyms()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns part-to-whole relationships for all sense of word/pos, or none if
+ not found<br>
+ X is a meronym of Y if Y has X as a part.<br>
+ X is a holonym of Y if X has Y as a part. That is, if Y is a meronym of X. <br>
+ Holds between: nouns and nouns<br>
+ Returns part, member, and substance holonyms<br>
+ Example: arm -> [body, physical-structure, man, human...]<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getallhypernyms.htm">getAllHypernyms()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns an ordered String[] of hypernym-synsets (each a semi-colon
+ delimited String) up to the root of Wordnet for the 1st sense of the word,
+ or null if not found<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getallhyponyms.htm">getAllHyponyms()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns an unordered String[] of hyponym-synsets (each a colon-delimited
+ String), or null if not found<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getallmeronyms.htm">getAllMeronyms()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns array of whole-to-part relationships for all senses of word/pos, or
+ null if not found<br>
+ X is a meronym of Y if Y has X as a part.<br>
+ X is a holonym of Y if X has Y as a part. That is, if Y is a meronym of X. <br>
+ Holds between: Nouns and nouns<br>
+ Returns part,member, and substance meronyms<br>
+ Example: arm -> [wrist, carpus, wrist-joint, radiocarpal-joint...]<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getallnominalizations.htm">getAllNominalizations()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns nominalized terms for all sense of word/pos or null if not found<br>
+ Refers to the use of a verb or an adjective as a noun. Holds for nouns,
+ verbs & adjecstives(?)<br>
+ Example: happiness(n) -> [happy, unhappy]<br>
+ happy(a) -> [happiness, felicity]<br><BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getallsimilar.htm">getAllSimilar()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns similar-to list for all sense of word/pos or null if not found<br>
+ Holds for adjectives<br>
+ Example:<br>
+ happy(a) -> [blessed, blissful, bright, golden, halcyon, prosperous...]<br><BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getallsynonyms.htm">getAllSynonyms()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns an unordered String[] containing the synset, hyponyms, similars,
+ alsoSees, and coordinate terms (checking each in order) for all senses of
+ <code>word</code> with <code>pos</code>, or null if not found<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getallsynsets.htm">getAllSynsets()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns String[] of words in each synset for all senses of
+ <code>word</code> with <code>pos</code>, or null if not found<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getallverbgroups.htm">getAllVerbGroups()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns verb group for all senses of verb or null if not found<br>
+ Example: live -> [dwell, inhabit]<br>
+ Holds for verbs<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getalsosees.htm">getAlsoSees()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns also-see terms for 1st sense of word/pos or null if not found<br>
+ Holds for nouns (?) & adjectives<br>
+ Example: happy -> [cheerful, elated, euphoric, felicitous, joyful,
+ joyous...]<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getanagrams.htm">getAnagrams()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns up to <code>maxResults</code> full anagram matches for the
+ specified <code>word</code> and <code>pos</code>
+ <p>
+ Example: 'table' returns 'bleat' (but not 'tale').<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getantonyms.htm">getAntonyms()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns String[] of Antonyms for the 1st sense of <code>word</code> with
+ <code>pos</code> or null if not found<br>
+ Holds for adjectives only (?)<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getanyexample.htm">getAnyExample()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Return a random example from the set of examples from all senses of
+ <code>word</code> with <code>pos</code>, assuming they contain
+ <code>word</code>, or else null if not found<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getbestpos.htm">getBestPos()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Finds the most-common part-of-speech for the word, according to its
+ polysemy count, returning the pos for the version of the word with the most
+ different senses.<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getcommonparent.htm">getCommonParent()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns common parent for words with unique ids <code>id1</code>,
+ <code>id2</code>, or null if either word or no parent is found<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getcommonparents.htm">getCommonParents()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns String[] of Common Parents for 1st senses of words with specified
+ pos' or null if not found<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getcontains.htm">getContains()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns up to <code>maxResults</code> of the specified <code>pos</code>
+ where each contains the given <code>word</code>
+ <p>
+ Example: 'table' returns 'bleat' (but not 'tale').<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getcoordinates.htm">getCoordinates()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns coordinate terms for 1st sense of word/pos, or null if not found<br>
+ X is a coordinate term of Y if there exists a term Z which is the hypernym
+ of both X and Y.<br>
+ Examples:
+ <ul>
+ <li>blackbird and robin are coordinate terms (since they are both a kind of
+ thrush)
+ <li>gun and bow are coordinate terms (since they are both weapons)
+ <li>fork and spoon are coordinate terms (since they are both cutlery, or
+ eating utensils)
+ <li>hat and helmet are coordinate terms (since they are both a kind of
+ headgear or headdress)
+ </ul>
+ Example: arm -> [hind-limb, forelimb, flipper, leg, crus, thigh, arm...]<br>
+ Holds btwn nouns/nouns and verbs/verbs<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getderivedterms.htm">getDerivedTerms()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns derived terms for 1st sense of word/pos or null if not found<br>
+ Holds for adverbs <br>
+ Example: happily -> [jubilant, blithe, gay, mirthful, merry, happy]<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getdescription.htm">getDescription()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns description for <code>word</code> with <code>pos</code> or null if
+ not found<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getdistance.htm">getDistance()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns the min distance between any two senses for the 2 words in the
+ wordnet tree (result normalized to 0-1) with specified pos, or 1.0 if
+ either is not found.
+ <P>
+ The algorithm procedes as follows:
+ <ol>
+ <li>locate node <code>cp</code>, the common parent of the two lemmas, if
+ one exists, by checking each sense of each lemma; if one is not found,
+ return 1.0
+ <li>calculate <code>minDistToCommonParent</code>, the shortest path from
+ either lemma to cp
+ <li>calculate <code>distFromCommonParentToRoot</code>, the length of the
+ path from cp to the root of ontology
+ <li>calculate and return the <code>normalizedDistToCommonParent</code> as:
+ <br>
+ <code>(minDistToCommonParent / (distFromCommonParentToRoot + minDistToCommonParent))</code>
+ <ol><BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getendswith.htm">getEndsWith()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns up to <code>maxResults</code> of the specified <code>pos</code>
+ ending with the given <code>word</code>.
+ <p>
+ Example: 'table' returns 'turntable' & 'uncomfortable'<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getexamples.htm">getExamples()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns examples for word with unique <code>senseId</code>, or null if not
+ found<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getgloss.htm">getGloss()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns full gloss for 1st sense of 'word' with 'pos' or null if not found<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getholonyms.htm">getHolonyms()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns part-to-whole relationships for 1st sense of word/pos, or none if
+ not found<br>
+ X is a meronym of Y if Y has X as a part.<br>
+ X is a holonym of Y if X has Y as a part. That is, if Y is a meronym of X. <br>
+ Holds between: nouns and nouns<br>
+ Returns part, member, and substance holonyms<br>
+ Example: arm -> [body, physical-structure, man, human...]<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_gethypernyms.htm">getHypernyms()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns Hypernym String[] for all senses of <code>word</code> with
+ <code>pos</code> or null if not found
+ <p>
+ X is a hyponym of Y if there exists an is-a relationship between X and Y.<br>
+ That is, if X is a subtype of Y. <br>
+ Or, for xample, if X is a species of the genus Y. <br>
+ X is a hypernym of Y is Y is a hyponym of X. <br>
+ Holds between: nouns and nouns & verbs and verbs<br>
+ Examples:
+ <ul>
+ <li>artifact is a hyponym of object
+ <li>object is a hypernym of artifact
+ <li>carrot is a hyponym of herb
+ <li>herb is a hypernym of carrot
+ </ul><BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_gethypernymtree.htm">getHypernymTree()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns an ordered String[] of hypernym-synsets (each a semi-colon
+ delimited String) up to the root of Wordnet for the <code>id</code>, or
+ null if not found<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_gethyponyms.htm">getHyponyms()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns Hyponym String[] for 1st sense of <code>word</code> with
+ <code>pos</code> or null if not found
+ <p>
+ X is a hyponym of Y if there exists an is-a relationship between X and Y.<br>
+ That is, if X is a subtype of Y. <br>
+ Or, for xample, if X is a species of the genus Y. <br>
+ X is a hypernym of Y is Y is a hyponym of X. <br>
+ Holds between: nouns and nouns & verbs and verbs<br>
+ Examples:
+ <ul>
+ <li>artifact is a hyponym of object
+ <li>object is a hypernym of artifact
+ <li>carrot is a hyponym of herb
+ <li>herb is a hypernym of carrot
+ </ul><BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_gethyponymtree.htm">getHyponymTree()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns an unordered String[] of hyponym-synsets (each a colon-delimited
+ String) representing all paths to leaves in the ontology (the full hyponym
+ tree), or null if not found
+ <p><BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getmeronyms.htm">getMeronyms()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns array of whole-to-part relationships for 1st sense of word/pos, or
+ null if not found<br>
+ X is a meronym of Y if Y has X as a part.<br>
+ X is a holonym of Y if X has Y as a part. That is, if Y is a meronym of X. <br>
+ Holds between: Nouns and nouns<br>
+ Returns part,member, and substance meronyms<br>
+ Example: arm -> [wrist, carpus, wrist-joint, radiocarpal-joint...]<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getnominalizations.htm">getNominalizations()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns nominalized terms for 1st sense of word/pos or null if not found<br>
+ Refers to the use of a verb or an adjective as a noun. Holds for nouns,
+ verbs & adjecstives(?)<br>
+ Example: happiness(n) -> [happy, unhappy]<br>
+ happy(a) -> [happiness, felicity]<br><BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getpos.htm">getPos()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns an array of all parts-of-speech ordered according to their polysemy
+ count, returning the pos with the most different senses in the first
+ position, etc.<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getrandomexample.htm">getRandomExample()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns a random example from a random word w' <code>pos</code><BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getrandomexamples.htm">getRandomExamples()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns <code>numExamples</code> random examples from random words w'
+ <code>pos</code><BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getrandomword.htm">getRandomWord()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns a random word with <code>pos</code> and a maximum of
+ <code>maxChars</code>.<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getrandomwords.htm">getRandomWords()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns <code>count</code> random words w' <code>pos</code><BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getregexmatch.htm">getRegexMatch()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns up to <code>maxResults</code> of the specified <code>pos</code>
+ matching the the given regular expression <code>pattern</code>.
+ <p><BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getsensecount.htm">getSenseCount()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Return the # of senses (polysemy) for a given word/pos. A 'sense' refers to
+ a specific Wordnet meaning and maps 1-1 to the concept of synsets. Each
+ 'sense' of a word exists in a different synset.
+ <p>
+ For more info, see: {@link http://wordnet.princeton.edu/gloss}<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getsenseids.htm">getSenseIds()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns an array of unique ids, one for each 'sense' of <code>word</code>
+ with <code>pos</code>, or null if none are found.
+ <p>
+ A Wordnet 'sense' refers to a specific Wordnet meaning and maps 1-1 to the
+ concept of synsets. Each 'sense' of a word exists in a different synset.
+ <p>
+ For more info, see: {@link http://wordnet.princeton.edu/gloss}<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getsimilar.htm">getSimilar()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns similar-to list for first sense of word/pos or null if not found<br>
+ Holds for adjectives<br>
+ Example:<br>
+ happy(a) -> [blessed, blissful, bright, golden, halcyon, prosperous...]<br><BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getsoundslike.htm">getSoundsLike()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns up to <code>maxResults</code> of the specified <code>pos</code>
+ that match the soundex code of the given <code>word</code>.
+ <p><BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getstartswith.htm">getStartsWith()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns up to <code>maxResults</code> of the specified <code>pos</code>
+ starting with the given <code>word</code>.
+ <p>
+ Example: 'turn' returns 'turntable'<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getstems.htm">getStems()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns an array of all stems, or null if not found<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getsynonyms.htm">getSynonyms()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns an unordered String[] containing the synset, hyponyms, similars,
+ alsoSees, and coordinate terms (checking each in order) for all senses of
+ <code>word</code> with <code>pos</code>, or null if not found<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getsynset.htm">getSynset()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns String[] of words in synset for first sense of <code>word</code>
+ with <code>pos</code>, or null if not found.<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getverbgroup.htm">getVerbGroup()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns verb group for 1st sense of verb or null if not found<br>
+ Example: live -> [dwell, inhabit]<br>
+ Holds for verbs<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_getwildcardmatch.htm">getWildcardMatch()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns up to <code>maxResults</code> of the specified <code>pos</code>
+ matching a wildcard <code>pattern</code>,<br>
+ with * '*' equals any number of characters, <br>
+ and '?' equals any single character.
+ <p>
+ Example: 't?le' returns (tale,tile,tole)<br>
+ Example: 't*le' returns (tatumble, turtle, tussle, etc.)<br>
+ Example: 't?le*' returns (telex, tile,tilefish,tile,talent, tiles, etc.)
+ <br><BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_ignorecompoundwords.htm">ignoreCompoundWords()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top><BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_ignoreuppercasewords.htm">ignoreUpperCaseWords()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top><BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_isadjective.htm">isAdjective()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top><BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_isadverb.htm">isAdverb()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top><BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_isignoringcompoundwords.htm">isIgnoringCompoundWords()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top><BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_isignoringuppercasewords.htm">isIgnoringUpperCaseWords()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top><BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_isnoun.htm">isNoun()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top><BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_isstem.htm">isStem()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns true if 'word' exists with 'pos' and is equal (via String.equals())
+ to any of its stem forms, else false;<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_isverb.htm">isVerb()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top><BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_iterator.htm">iterator()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Returns an iterator over all words of the specified 'pos'<BR><BR></td>
+	  </tr>
+    
+      <tr>
+        <td width="120" valign=top><a href="riwordnet_method_printhypernymtree.htm">printHypernymTree()</a></td>
+        <td width="20">&nbsp;</td>
+        <td valign=top>Prints the full hypernym tree to System.out (primarily for debugging).<BR><BR></td>
+	  </tr>
+    
+         </table>
+	   </td>
+	 </tr>
+   
+  <tr>
+    <td valign=top class="mainText">Usage</td>
+    <td class="descList">Web & Application</td>
+  </tr>
+  <!--tr>
+    <td valign=top class="mainText">Related</td>
+    <td class="descList">@related</td>
+  </tr-->
+</table>
+</center>
+</body>
+</html>

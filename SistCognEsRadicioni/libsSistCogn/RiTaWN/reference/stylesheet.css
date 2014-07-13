@@ -1,0 +1,212 @@
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color: #FFFFFF;
+  background-image: url(imgs/rita.bg3.gif);
+  background-repeat: no-repeat;
+}
+
+pre {  
+	FONT-FAMILY: "Courier New", Courier, mono; 
+	FONT-SIZE: 11px; 
+	LINE-HEIGHT: normal; 
+	COLOR: #000000
+}
+
+.credits {
+  color:#222222;
+	font: normal 11px Verdana, Arial, Helvetica, sans-serif; 
+	padding-top: 0px;
+  padding-bottom: 0px;
+  line-height:140%;
+  font-size: 11px; 
+}
+
+li {
+  color:#222222;
+	font: normal 11px Verdana, Arial, Helvetica, sans-serif; 
+	padding-top: 0px;
+  padding-bottom: 0px;
+  line-height:140%;
+  font-size: 11px; 
+}
+
+h3 {
+  color:#395771;
+	font: bold normal normal 12px Verdana, Arial, Helvetica, sans-serif; 
+	padding-top: 0px;
+  padding-bottom: 0px;
+  line-height:140%;
+  font-size: 12px; 
+}
+
+A:link {
+	color: #657890;
+  font-size: 12px; 
+	text-decoration: none;
+	font:normal normal normal 12px Verdana, Arial, Helvetica, sans-serif;	
+	padding-left:8px;
+	padding-bottom: 15px;	
+	line-height:140%;
+}
+A:visited {
+	color: #657890;
+  font-size: 12px; 
+	text-decoration: none;
+	font:normal normal normal 12px Verdana, Arial, Helvetica, sans-serif;	
+	padding-left:8px;
+	padding-bottom: 15px;	
+	line-height:140%;
+}											
+A:active {
+	color: #657890;
+  font-size: 12px; 
+	text-decoration: none;
+	font:normal normal normal 12px Verdana, Arial, Helvetica, sans-serif;	
+	padding-left:8px;
+	padding-bottom: 15px;	
+	line-height:140%;
+}
+A:hover {
+	color: #153850;
+  font-size: 12px; 
+	text-decoration: none;
+	font:normal normal normal 12px Verdana, Arial, Helvetica, sans-serif;	
+	padding-left:8px;
+	padding-bottom: 15px;	
+	line-height:140%;
+  cursor: pointer;
+	text-decoration: underline;
+}
+
+
+
+
+
+.mainText {
+	font-family: Helvetica, sans-serif, Arial;
+	font-size: 11px;
+	vertical-align: top;
+	text-align: right;
+	padding-right: 20px;
+	color: #395771;
+}
+.linkList {
+	font-family: Helvetica, sans-serif, Arial;
+	font-size: 11px;
+	vertical-align: top;
+	font-style: normal;
+	color: #777777;
+	border-left-width: 1px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: solid;
+	border-left-color: #777777;
+	padding-left: 5px;
+}
+
+.descList {
+	font-family: Helvetica, sans-serif, Arial;
+	font-size: 11px;
+	vertical-align: top;
+	font-style: normal;
+	color: #000000;
+	border-left-width: 1px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: solid;
+	border-left-color: #777777;
+	padding-left: 20px;
+	padding-bottom: 30px;
+		padding-right: 20px;
+}
+a.libName {
+	font-family: Helvetica, sans-serif, Arial;
+  color: #395771;
+	font-size: 36px;
+}
+.header {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	color: #777777;
+	text-align: right;
+	padding: 20px;
+	width: 126px;
+	font-weight: normal;
+}
+.methodName {
+	font-family: Helvetica, sans-serif, Arial;
+	font-size: 18px;
+	vertical-align: top;
+	font-style: normal;
+	color: #395771;
+	border-left-width: 1px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: solid;
+	border-left-color: #777777;
+	padding-left: 20px;
+	padding-bottom: 30px;
+}
+.mainTextName {
+  color: #395771;
+	font-family: Helvetica, sans-serif, Arial;
+	font-size: 11px;
+	vertical-align: top;
+	padding-right: 20px;
+	text-align: right;
+	padding-top: 5px;
+}
+.colored {
+	color: #777777;
+}
+.indextext {
+	font-family: Helvetica, sans-serif, Arial;
+	font-size: 11px;
+	vertical-align: top;
+	text-align: left;
+	padding-right: 20px;
+	padding-left: 20px;
+}
+.indextextb {
+	font-family: Helvetica, sans-serif, Arial;
+	font-size: 11px;
+	vertical-align: bottom;
+	text-align: right;
+	padding-right: 4px;
+	padding-left: 4px;
+	font-style: italic,bold;
+	color: #555555;
+}
+.indextextc {
+	font-family: Helvetica, sans-serif, Arial;
+	font-size: 10px;
+	vertical-align: bottom;
+	text-align: right;
+	padding-right: 4px;
+	padding-left: 4px;
+	font-style: bold;
+	color: #777777;
+}
+.indexheader {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 32px;
+	color: #666676;
+	text-align: left;
+	width: 400px;
+	padding-top: 40px;
+	padding-bottom: 0px;
+}
+.code_style {
+	font-size: 8px;
+}
+h2 {
+	color: #666676;
+	font-family: Helvetica, Arial, sans-serif; padding-top: 0px;
+	font-size: 20px;
+}

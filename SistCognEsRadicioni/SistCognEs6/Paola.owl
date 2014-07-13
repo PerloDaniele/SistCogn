@@ -1,0 +1,1729 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#"
+     xml:base="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.OpereLetterarie.org/ontologies/Paola.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haArgomento -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haArgomento">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Argomento"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#OperaLetteraria"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haCanaleComunicativo -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haCanaleComunicativo">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#CanaleComunicativo"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#OperaLetteraria"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haForma -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haForma">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Forma"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#OperaLetteraria"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haLocalizzazioneStorica -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haLocalizzazioneStorica">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#LocalizzazioneStorica"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#OperaLetteraria"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haPersonaggio -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haPersonaggio">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#OperaLetteraria"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Personaggio"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#èArgomentoDi -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#èArgomentoDi">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Argomento"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#OperaLetteraria"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haArgomento"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#èCanaleComunicativoDi -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#èCanaleComunicativoDi">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#CanaleComunicativo"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#OperaLetteraria"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haCanaleComunicativo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#èFormaDi -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#èFormaDi">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Forma"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#OperaLetteraria"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haForma"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#èPersonaggioDi -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#èPersonaggioDi">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#OperaLetteraria"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Personaggio"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haPersonaggio"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#éLocalizzazioneStoricaDi -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#éLocalizzazioneStoricaDi">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#LocalizzazioneStorica"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#OperaLetteraria"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haLocalizzazioneStorica"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haLunghezza -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haLunghezza">
+        <rdfs:comment>valore in proporzione [ 1 , 100 ]</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#ABaseStorica -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#ABaseStorica">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Storico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#A_Silvia -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#A_Silvia">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#OpereTitolate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haArgomento"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Sentimentale"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haForma"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Poesia"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haLocalizzazioneStorica"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#EtàContemporanea"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haCanaleComunicativo"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Scritto"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haLocalizzazioneStorica"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#EtàContemporanea"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Romanticismo"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haLocalizzazioneStorica"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Romanticismo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Amante -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Amante">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Ruolo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Amoroso -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Amoroso">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Argomento"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#AnticaGrecia -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#AnticaGrecia">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#PeriodoStorico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#AnticaRoma -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#AnticaRoma">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#PeriodoStorico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Argomento -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Argomento"/>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Avanguardie -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Avanguardie">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Corrente"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#CanaleComunicativo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#CanaleComunicativo"/>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Cavaliere -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Cavaliere">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Ruolo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Corrente -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Corrente">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#LocalizzazioneStorica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Dal_manoscritto_alla_stampa -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Dal_manoscritto_alla_stampa">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#OpereTitolate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haLocalizzazioneStorica"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#EtàContemporanea"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haPersonaggio"/>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Personaggio"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haLocalizzazioneStorica"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#EtàContemporanea"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haCanaleComunicativo"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Scritto"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haArgomento"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Istruttivo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haArgomento"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#StoricoScientifico"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haForma"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Prosa"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Donzella -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Donzella">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Ruolo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Eneide -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Eneide">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#OpereTitolate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haPersonaggio"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Guerriero"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haForma"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Poesia"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haLocalizzazioneStorica"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#AnticaRoma"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haArgomento"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Guerresco"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haPersonaggio"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Eroe"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haLocalizzazioneStorica"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#AnticaRoma"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haArgomento"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#ABaseStorica"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haCanaleComunicativo"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Orale"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haArgomento"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Amoroso"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Epica -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Epica">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#OperaLetteraria"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haArgomento"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#ABaseStorica"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haArgomento"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Amoroso"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haArgomento"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Guerresco"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haCanaleComunicativo"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Orale"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haPersonaggio"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Eroe"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haLocalizzazioneStorica"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#AnticaGrecia"/>
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#AnticaRoma"/>
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#EtàModerna"/>
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Medioevo"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haLunghezza"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="&xsd;integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="&xsd;integer">90</xsd:minInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Eroe -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Eroe">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Ruolo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#EtàBarocca -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#EtàBarocca">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#EtàModerna"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#EtàContemporanea -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#EtàContemporanea">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#PeriodoStorico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#EtàModerna -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#EtàModerna">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#PeriodoStorico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Fantascientifico -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Fantascientifico">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Argomento"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Fantasy -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Fantasy">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Argomento"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Favola -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Favola">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#OperaLetteraria"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haArgomento"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Istruttivo"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haForma"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Prosa"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haPersonaggio"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#NonUmano"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haLunghezza"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="&xsd;integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxInclusive rdf:datatype="&xsd;integer">5</xsd:maxInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Forma -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Forma"/>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Futurismo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Futurismo">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Avanguardie"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Surrealismo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Guerra_e_Pace -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Guerra_e_Pace">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#OpereTitolate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haForma"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Prosa"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haLocalizzazioneStorica"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#EtàContemporanea"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haArgomento"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#ABaseStorica"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haLocalizzazioneStorica"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Realismo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haLocalizzazioneStorica"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#EtàContemporanea"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Realismo"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haArgomento"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Amoroso"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haLocalizzazioneStorica"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#EtàContemporanea"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haCanaleComunicativo"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Scritto"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Guerresco -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Guerresco">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Argomento"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Guerriero -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Guerriero">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Ruolo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#I_limoni -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#I_limoni">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#OpereTitolate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haForma"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Poesia"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haCanaleComunicativo"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Scritto"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haArgomento"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Sentimentale"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Il_signore_degli_anelli -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Il_signore_degli_anelli">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#OpereTitolate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haPersonaggio"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Cavaliere"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haPersonaggio"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Inventato"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haPersonaggio"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Eroe"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haForma"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Prosa"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haCanaleComunicativo"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Scritto"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haLocalizzazioneStorica"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#EtàContemporanea"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haLocalizzazioneStorica"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#EtàContemporanea"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haPersonaggio"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Guerriero"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haArgomento"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Fantasy"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haArgomento"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Guerresco"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Iliade -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Iliade">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#OpereTitolate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haArgomento"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#ABaseStorica"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haPersonaggio"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Eroe"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haLocalizzazioneStorica"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#AnticaGrecia"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haPersonaggio"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Guerriero"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haLocalizzazioneStorica"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#AnticaGrecia"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haArgomento"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Amoroso"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haArgomento"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Guerresco"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haForma"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Poesia"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haCanaleComunicativo"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Orale"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Illuminismo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Illuminismo">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Corrente"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Inventato -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Inventato">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#NonUmano"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Umano"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Tipo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Istruttivo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Istruttivo">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Argomento"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#L_Orlando_Furioso -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#L_Orlando_Furioso">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#OpereTitolate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haForma"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Poesia"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haLocalizzazioneStorica"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#EtàModerna"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haArgomento"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Guerresco"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haLocalizzazioneStorica"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#EtàModerna"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haPersonaggio"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Cavaliere"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haArgomento"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#ABaseStorica"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haPersonaggio"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Eroe"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haCanaleComunicativo"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Orale"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haArgomento"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Amoroso"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#L_amore_ai_tempi_del_colera -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#L_amore_ai_tempi_del_colera">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#OpereTitolate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haArgomento"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#ABaseStorica"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haPersonaggio"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Umano"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haArgomento"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Amoroso"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haLocalizzazioneStorica"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Realismo_Magico"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haLocalizzazioneStorica"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#EtàContemporanea"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haLocalizzazioneStorica"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#EtàContemporanea"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Realismo_Magico"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haCanaleComunicativo"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Scritto"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haForma"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Prosa"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#La_locandiera -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#La_locandiera">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#OpereTitolate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haCanaleComunicativo"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#MessaInScena"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haForma"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Prosa"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haPersonaggio"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Donzella"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#La_pioggia_nel_pineto -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#La_pioggia_nel_pineto">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#OpereTitolate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haPersonaggio"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Donzella"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haForma"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Poesia"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haLocalizzazioneStorica"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#EtàContemporanea"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haCanaleComunicativo"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Scritto"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haLocalizzazioneStorica"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#EtàContemporanea"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haArgomento"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Sentimentale"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#La_sentinella -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#La_sentinella">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#OpereTitolate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haLocalizzazioneStorica"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#EtàContemporanea"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haLocalizzazioneStorica"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#EtàContemporanea"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haForma"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Prosa"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haArgomento"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Fantascientifico"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haPersonaggio"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#NonUmano"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haCanaleComunicativo"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Scritto"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#La_volpe_e_l_uva -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#La_volpe_e_l_uva">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#OpereTitolate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haForma"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Prosa"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haArgomento"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Istruttivo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haPersonaggio"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#NonUmano"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haCanaleComunicativo"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Scritto"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Lirica -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Lirica">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#OperaLetteraria"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haArgomento"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Sentimentale"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haCanaleComunicativo"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Scritto"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haForma"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Poesia"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#LocalizzazioneStorica -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#LocalizzazioneStorica"/>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Medioevo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Medioevo">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#PeriodoStorico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#MessaInScena -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#MessaInScena">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#CanaleComunicativo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Modernismo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Modernismo">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Corrente"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Naturalismo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Naturalismo">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Corrente"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Neoclassicismo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Neoclassicismo">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Corrente"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#NonUmano -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#NonUmano">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Inventato"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Umano"/>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Inventato"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#OperaLetteraria -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#OperaLetteraria">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haLunghezza"/>
+                <owl:someValuesFrom rdf:resource="&xsd;integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#OpereTitolate -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#OpereTitolate">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#OperaLetteraria"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Orale -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Orale">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#CanaleComunicativo"/>
+        <rdfs:comment>Cantato o Recitato o Parlato</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#PeriodoStorico -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#PeriodoStorico">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#LocalizzazioneStorica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Personaggio -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Personaggio"/>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Poesia -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Poesia">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Forma"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Postmoderno -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Postmoderno">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Corrente"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Prosa -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Prosa">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Forma"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Racconto -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Racconto">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#OperaLetteraria"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haCanaleComunicativo"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Scritto"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haForma"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Prosa"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haLocalizzazioneStorica"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Avanguardie"/>
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Modernismo"/>
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Naturalismo"/>
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#PeriodoStorico"/>
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Verismo"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haPersonaggio"/>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Personaggio"/>
+                        <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haLunghezza"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="&xsd;integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxInclusive rdf:datatype="&xsd;integer">40</xsd:maxInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Reale -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Reale">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Tipo"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Inventato"/>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Tipo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Realismo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Realismo">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Corrente"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Realismo_Magico -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Realismo_Magico">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Postmoderno"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Romanticismo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Romanticismo">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Corrente"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Romanzo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Romanzo">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#OperaLetteraria"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haCanaleComunicativo"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Scritto"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haForma"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Prosa"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haLocalizzazioneStorica"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#AnticaGrecia"/>
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#EtàContemporanea"/>
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Modernismo"/>
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Naturalismo"/>
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Postmoderno"/>
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Realismo"/>
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Verismo"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haLunghezza"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="&xsd;integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minExclusive rdf:datatype="&xsd;integer">40</xsd:minExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Ruolo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Ruolo">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Personaggio"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Saggio -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Saggio">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#OperaLetteraria"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haArgomento"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Istruttivo"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haCanaleComunicativo"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Scritto"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haForma"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Prosa"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haPersonaggio"/>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Personaggio"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#OperaLetteraria"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Scientifico -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Scientifico">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Argomento"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Scienziato -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Scienziato">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Ruolo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Scritto -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Scritto">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#CanaleComunicativo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Sentimentale -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Sentimentale">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Argomento"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Storico -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Storico">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Argomento"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#StoricoScientifico -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#StoricoScientifico">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Storico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Surrealismo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Surrealismo">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Avanguardie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Teatro -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Teatro">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#OperaLetteraria"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#haCanaleComunicativo"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#MessaInScena"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#OperaLetteraria"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Tipo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Tipo">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Inventato"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Reale"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Personaggio"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Umanesimo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Umanesimo">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Corrente"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Umano -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Umano">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Inventato"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Verismo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Verismo">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Corrente"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#A_Silvia -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#A_Silvia">
+        <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#A_Silvia"/>
+        <haLunghezza rdf:datatype="&xsd;integer">10</haLunghezza>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Dal_manoscritto_alla_stampa -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Dal_manoscritto_alla_stampa">
+        <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Dal_manoscritto_alla_stampa"/>
+        <haLunghezza rdf:datatype="&xsd;integer">30</haLunghezza>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Eneide -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Eneide">
+        <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Eneide"/>
+        <haLunghezza rdf:datatype="&xsd;integer">100</haLunghezza>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Guerra_e_Pace -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Guerra_e_Pace">
+        <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Guerra_e_Pace"/>
+        <haLunghezza rdf:datatype="&xsd;integer">100</haLunghezza>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#I_limoni -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#I_limoni">
+        <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#I_limoni"/>
+        <haLunghezza rdf:datatype="&xsd;integer">100</haLunghezza>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Il_signore_degli_anelli -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Il_signore_degli_anelli">
+        <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Il_signore_degli_anelli"/>
+        <haLunghezza rdf:datatype="&xsd;integer">100</haLunghezza>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Illiade -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Illiade">
+        <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Iliade"/>
+        <haLunghezza rdf:datatype="&xsd;integer">90</haLunghezza>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#L_Orlando_furioso -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#L_Orlando_furioso">
+        <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#L_Orlando_Furioso"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#L_amore_ai_tempi_del_colera -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#L_amore_ai_tempi_del_colera">
+        <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#L_amore_ai_tempi_del_colera"/>
+        <haLunghezza rdf:datatype="&xsd;integer">60</haLunghezza>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#La_locandiera -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#La_locandiera">
+        <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#La_locandiera"/>
+        <haLunghezza rdf:datatype="&xsd;integer">30</haLunghezza>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#La_pioggia_nel_pineto -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#La_pioggia_nel_pineto">
+        <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#La_pioggia_nel_pineto"/>
+        <haLunghezza rdf:datatype="&xsd;integer">10</haLunghezza>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#La_sentinella -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#La_sentinella">
+        <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#La_sentinella"/>
+        <haLunghezza rdf:datatype="&xsd;integer">15</haLunghezza>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#La_volpe_e_l_uva -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#La_volpe_e_l_uva">
+        <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#La_volpe_e_l_uva"/>
+        <haLunghezza rdf:datatype="&xsd;integer">5</haLunghezza>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Amante"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Cavaliere"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Donzella"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Guerriero"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Scienziato"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Avanguardie"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Illuminismo"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Modernismo"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Naturalismo"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Neoclassicismo"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Romanticismo"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Umanesimo"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2014/5/untitled-ontology-6#Verismo"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+

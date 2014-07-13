@@ -38,7 +38,7 @@ for production in prodCount:
 
 pcfg = []
 
-#creo la pcfg, quindi inserendo le probabilità
+#creo la pcfg, quindi inserendo le probabilita'
 for p in probs:
 	wf=str(p)
 	#parse_pcfg non accetta tutta una serie di caratteri e non terminali composti da caratteri non alfanumerici
@@ -55,8 +55,9 @@ grammar = nltk.parse_pcfg(pcfg)
 viterbi_parser = nltk.ViterbiParser(grammar)
  
 #frase di prova
-sent = 'I can finally drink a beer now'.split()
+sent = 'I can finally drink a beer now'
 print sent
+sent=sent.split()
 
 #parsificazione
 for tree in viterbi_parser.nbest_parse(sent,3):
